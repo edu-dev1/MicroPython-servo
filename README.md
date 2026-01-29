@@ -1,9 +1,9 @@
 # MicroPython-servo
-A simple MicroPythn library for micro-servo.
+A simple MicroPython library for micro-servo.
 
 ## Features
--Easy to use.
--Compatible with EP32 and Raspberry.
+- Easy to use.
+- Compatible with EP32 and Raspberry.
 
 ## Example of usage
 ```python
