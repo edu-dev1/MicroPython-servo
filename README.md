@@ -5,7 +5,7 @@ A simple MicroPython library for micro-servo.
 - Easy to use.
 - Compatible with EP32 and Raspberry.
 
-## Example of usage
+## Example of use
 ```python
 from servo import Servo
 from time import sleep
