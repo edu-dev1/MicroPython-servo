@@ -22,9 +22,10 @@ class Servo:
         self.__max_pulse_ns = max_pulse_ms * 1_000_000
         self.__pulse_width = 0
         self.__current_degrees = 0
-    
+        self.__s = Servo.__total_servos_counter
+
     def __str__(self) -> str:
-        return "Un servo motor."
+        return f"Servo {self.__s}"
     
     @classmethod
     def total_servos(cls) -> int:
@@ -77,6 +78,7 @@ class Servo:
 def rotate_all_servos(degrees:int) -> None:
     '''
     Mueve todos los servos a la vez con los grados deseados (0-180°).
+
     :param degrees: Grados.
     :type degrees: int
     '''
@@ -93,18 +95,4 @@ def disable_all_servos() -> None:
 
     for servo in Servo.__list_of_servos:
         servo.disable() 
-
-if __name__ == '__main__':
-    servo = Servo(pwm_pin = 0, min_pulse_ms = 0.5, max_pulse_ms = 2.4, frequency = 50)
-    servo2 = Servo(pwm_pin = 2, min_pulse_ms = 0.5, max_pulse_ms = 2.4, frequency = 50)
-    servo3 = Servo(pwm_pin = 15, min_pulse_ms = 0.5, max_pulse_ms = 2.4, frequency = 50)
-    from time import sleep
-    try:
-        while True:
-            for degree in [0, 45, 90, 135, 180]:
-                rotate_all_servos(degree)
-                print(degree)
-                sleep(1)
-    except KeyboardInterrupt:
-        disable_all_servos()
-
+    
